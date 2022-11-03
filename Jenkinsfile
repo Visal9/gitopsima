@@ -20,12 +20,12 @@ node {
         }
     }
 
-     //stage('Push image') {
+     stage('Push image') {
         
-     //   docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
-       //     app.push("${env.BUILD_NUMBER}")
-    //   }
-   // }
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
+            app.push("${env.BUILD_NUMBER}")
+       }
+    }
     
     stage('Trigger ManifestUpdate') {
                 echo "triggering updatemanifestjob"
